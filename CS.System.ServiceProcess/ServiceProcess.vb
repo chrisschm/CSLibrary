@@ -27,8 +27,8 @@
                     ''' <summary>
                     ''' Setzt einen Dienst fort, nachdem dieser zuvor angehalten wurde.
                     ''' </summary>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
                     Public Sub [Continue]()
                         SC.Continue()
                     End Sub
@@ -37,8 +37,8 @@
                     ''' Führt einen benutzerdefinierten Befehl für den Dienst aus.
                     ''' </summary>
                     ''' <param name="command">Ein von der Anwendung definiertes Befehlsflag, das angibt, welcher benutzerdefinierte Befehl ausgeführt werden soll. Der Wert muss zwischen 128 und einschließlich 256 liegen.</param>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
                     Public Sub ExecuteCommand(command As Integer)
                         SC.ExecuteCommand(command)
                     End Sub
@@ -47,7 +47,7 @@
                     ''' Ruft die Gerätetreiberdienste auf dem lokalen Computer ab.
                     ''' </summary>
                     ''' <returns>Ein Array vom Typ System.ServiceProcess.ServiceController in dem jedes Element einem Gerätetreiberdienst auf dem lokalen Computer zugeordnet ist.</returns>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
                     Public Shared Function GetDevices() As ServiceController()
                         Dim GServContr() As Global.System.ServiceProcess.ServiceController = Global.System.ServiceProcess.ServiceController.GetDevices()
                         Dim SCs(GServContr.Count) As ServiceController
@@ -64,8 +64,8 @@
                     ''' </summary>
                     ''' <param name="machineName">Der Computer, von dem die Gerätetreiberdienste abgerufen werden soll.</param>
                     ''' <returns>Ein Array vom Typ System.ServiceProcess.ServiceController in dem jedes Element einem Gerätetreiberdienst auf dem angegebenen Computer zugeordnet ist.</returns>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="ArgumentException">Die machineName Parameter hat eine ungültige Syntax.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.ArgumentException">Die machineName Parameter hat eine ungültige Syntax.</exception>
                     Public Shared Function GetDevices(machineName As String) As ServiceController()
                         Dim GServContr() As Global.System.ServiceProcess.ServiceController = Global.System.ServiceProcess.ServiceController.GetDevices(machineName)
                         Dim SCs(GServContr.Count) As ServiceController
@@ -81,7 +81,7 @@
                     ''' Ruft alle Dienste auf dem lokalen Computer mit Ausnahme der Gerätetreiberdienste ab.
                     ''' </summary>
                     ''' <returns>Ein Array vom Typ System.ServiceProcess.ServiceController in dem jedes Element einem Dienst auf dem lokalen Computer zugeordnet ist.</returns>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
                     Public Shared Function GetServices() As ServiceController()
                         Dim GServContr() As Global.System.ServiceProcess.ServiceController = Global.System.ServiceProcess.ServiceController.GetServices()
                         Dim SCs(GServContr.Count) As ServiceController
@@ -98,8 +98,8 @@
                     ''' </summary>
                     ''' <param name="machineName">Der Computer, dessen Dienste abgerufen werden sollen.</param>
                     ''' <returns>Ein Array vom Typ System.ServiceProcess.ServiceController in dem jedes Element einem Dienst auf dem angegebenen Computer zugeordnet ist.</returns>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="ArgumentException">Die machineName Parameter hat eine ungültige Syntax.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.ArgumentException">Die machineName Parameter hat eine ungültige Syntax.</exception>
                     Public Shared Function GetServices(machineName As String) As ServiceController()
                         Dim GServContr() As Global.System.ServiceProcess.ServiceController = Global.System.ServiceProcess.ServiceController.GetServices(machineName)
                         Dim SCs(GServContr.Count) As ServiceController
@@ -124,7 +124,7 @@
                     ''' vorhandenen Dienst auf dem angegebenen Computer zugeordnet ist.
                     ''' </summary>
                     ''' <param name="name">Der Name, der den Dienst für das System identifiziert. Dies kann auch der Anzeigename für den Dienst sein.</param>
-                    ''' <exception cref="ArgumentException">name ist ungültig.</exception>
+                    ''' <exception cref="Global.System.ArgumentException">name ist ungültig.</exception>
                     Public Sub New(name As String)
                         SC = New Global.System.ServiceProcess.ServiceController(name)
                         WMI = New Management.ManagementObject("Win32_Service.Name='" + name + "'")
@@ -137,7 +137,7 @@
                     ''' </summary>
                     ''' <param name="name">Der Name, der den Dienst für das System identifiziert. Dies kann auch der Anzeigename für den Dienst sein.</param>
                     ''' <param name="machineName">Der Computer, auf dem sich der Dienst befindet.</param>
-                    ''' <exception cref="ArgumentException">name ist ungültig, oder machineName ist ungültig.</exception>
+                    ''' <exception cref="Global.System.ArgumentException">name ist ungültig, oder machineName ist ungültig.</exception>
                     Public Sub New(name As String, machineName As String)
                         SC = New Global.System.ServiceProcess.ServiceController(name, machineName)
                         Dim s As Management.ManagementScope = New Management.ManagementScope("\\\\" & machineName & "\\root\\cimv2")
@@ -150,8 +150,8 @@
                     ''' <summary>
                     ''' Unterbricht die Ausführung eines Diensts.
                     ''' </summary>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
                     Public Sub Pause()
                         SC.Pause()
                     End Sub
@@ -166,8 +166,8 @@
                     ''' <summary>
                     ''' Startet den Dienst und übergibt dabei keine Argumente.
                     ''' </summary>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
                     Public Sub Start()
                         SC.Start()
                     End Sub
@@ -183,8 +183,8 @@
                     ''' <summary>
                     ''' Beendet diesen Dienst sowie alle Dienste, die von diesem Dienst abhängig sind.
                     ''' </summary>
-                    ''' <exception cref="ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
-                    ''' <exception cref="InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.Win32Exception">Beim Zugreifen auf eine System-API ist ein Fehler aufgetreten.</exception>
+                    ''' <exception cref="Global.System.InvalidOperationException">Der Dienst wurde nicht gefunden.</exception>
                     Public Sub [Stop]()
                         SC.Stop()
                     End Sub
@@ -193,7 +193,7 @@
                     ''' Wartet unbegrenzt, bis der Dienst den angegebenen Zustand annimmt.
                     ''' </summary>
                     ''' <param name="desiredStatus">Der Status auf den gewartet wird.</param>
-                    ''' <exception cref="ComponentModel.InvalidEnumArgumentException">Der im desiredStatus Parameter übergebene Wert ist nicht gemäß der <seealso cref="ServiceControllerStatus"/> Enumeration.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.InvalidEnumArgumentException">Der im desiredStatus Parameter übergebene Wert ist nicht gemäß der <seealso cref="ServiceControllerStatus"/> Enumeration.</exception>
                     Public Sub WaitForStatus(desiredStatus As ServiceControllerStatus)
                         SC.WaitForStatus(desiredStatus)
                     End Sub
@@ -203,7 +203,7 @@
                     ''' </summary>
                     ''' <param name="desiredStatus">Der Status auf den gewartet wird.</param>
                     ''' <param name="timeout">Ein <seealso cref="TimeSpan"/>-Objekt das die Zeitspanne angibt, die gewartet werden soll bis der Dienst den angegebenen Status annimmt.</param>
-                    ''' <exception cref="ComponentModel.InvalidEnumArgumentException">Der im desiredStatus Parameter übergebene Wert ist nicht gemäß der <seealso cref="ServiceControllerStatus"/> Enumeration.</exception>
+                    ''' <exception cref="Global.System.ComponentModel.InvalidEnumArgumentException">Der im desiredStatus Parameter übergebene Wert ist nicht gemäß der <seealso cref="ServiceControllerStatus"/> Enumeration.</exception>
                     ''' <exception cref="Global.System.ServiceProcess.TimeoutException">Der angegebene Wert für den timeout Parameter ist abgelaufen.</exception>
                     Public Sub WaitForStatus(desiredStatus As ServiceControllerStatus, timeout As TimeSpan)
                         SC.WaitForStatus(desiredStatus, timeout)
