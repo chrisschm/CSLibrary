@@ -9,7 +9,7 @@ Um eine Kopie der Projekte zu erstellen, klone das Repository und erstelle selbs
 
 ## Erstellt mit / Built With
 
-* [Visual Studio](https://visualstudio.microsoft.com/de/downloads/) - Visual Studio 2017 (Visual Basic) Community 
+* [Visual Studio](https://visualstudio.microsoft.com/de/downloads/) - Visual Studio 2022 (Visual Basic) Community 
 * [Vs Incrementer](http://www.butterflyvista.com/Products/EngrTools/VsIncrementer/Main.aspx) - VS Incrementer Extension
 
 ## Autoren / Authors
